@@ -1,0 +1,25 @@
+IF(CMAKE_BUILD_TYPE MATCHES "release")
+	SET(CMAKE_CXX_FLAGS "-O3 -Wall -s -pthread")
+ELSE()
+	SET(CMAKE_CXX_FLAGS "-g -W -Wall -pthread")
+ENDIF()
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wsign-compare")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wsign-compare")
+
+INCLUDE_DIRECTORIES(/usr/include/xxx)
+
+if(ENABLE_GCOV AND NOT WIN32 AND NOT APPLE)
+  SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fprofile-arcs -ftest-coverage")
+  SET(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -fprofile-arcs -ftest-coverage")
+  SET(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} -fprofile-arcs -ftest-coverage -lgcov")
+endif(SE_ENABLE_GCOV)
+
+
+	
+
+
+
+
+
+
+
